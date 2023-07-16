@@ -1,2 +1,2 @@
-# tekkenfront
-Tekken FrontEnd
+# Tekken App
+Tekken App in Angular
