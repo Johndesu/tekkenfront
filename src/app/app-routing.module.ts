@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ArticleComponent } from './modules/article/article.component';
 
 const routes: Routes = [
   {
-    path: 'account',
-    loadChildren: () => import('./modules/account/account.module').then(m => m.AccountModule)
+    path: 'noticias',
+    component : ArticleComponent,
+    loadChildren: () => import('./modules/article/article.module').then(m => m.ArticleModule)
   },
 ];
 
