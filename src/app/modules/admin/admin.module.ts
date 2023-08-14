@@ -11,6 +11,8 @@ import { AdminCategoryListComponent } from './components/admin-category/admin-ca
 import { AdminCategoryDetailComponent } from './components/admin-category/admin-category-detail/admin-category-detail.component';
 import { AdminArticleAddComponent } from './components/admin-article/admin-article-add/admin-article-add.component';
 import { AdminCategoryAddComponent } from './components/admin-category/admin-category-add/admin-category-add.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { AdminCategoryAddComponent } from './components/admin-category/admin-cat
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    FormsModule,
+    HttpClientModule
   ]
 })
 export class AdminModule { }
