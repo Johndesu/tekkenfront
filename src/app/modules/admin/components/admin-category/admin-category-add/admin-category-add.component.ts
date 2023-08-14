@@ -1,28 +1,36 @@
-import { Component } from '@angular/core';
-import { AdminAddCategoryRequest } from '../../../models/admin-category/admin-category-add-request';
+import { Component, OnDestroy } from '@angular/core';
+import { AdminAddCategoryRequest } from '../../../models/category/category-add-request.model';
 import { CategoryService } from '../../../services/admin-category/category.service';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-category-add',
   templateUrl: './admin-category-add.component.html',
   styleUrls: ['./admin-category-add.component.css']
 })
-export class AdminCategoryAddComponent {
+export class AdminCategoryAddComponent implements OnDestroy {
   model: AdminAddCategoryRequest;
+  private addCategorySubscription?: Subscription
 
-  constructor(private categoryService: CategoryService){
+
+  constructor(private categoryService: CategoryService,private router: Router){
     this.model = {
-      description: ''
+      description: '',
+      urlHandle: ''
     }
   }
 
   onFormSubmit(){
-    console.log(this.model);
-    this.categoryService.addCategory(this.model)
+    this.addCategorySubscription = this.categoryService.addCategory(this.model)
     .subscribe({
       next:(response) =>{
-        console.log('This was successful!');
+        this.router.navigateByUrl('admin/admin-category');
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.addCategorySubscription?.unsubscribe();
   }
 }

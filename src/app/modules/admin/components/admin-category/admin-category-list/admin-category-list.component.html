@@ -1,7 +1,26 @@
 <div class="text-center text-white">
     <h2 class="text-4xl">Gerir Categorias</h2>
     <div>
-        Listagem...
+        <ng-container *ngIf="categories$ | async as categories">
+            <table class="table-auto">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Url</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let category of categories$ | async">
+                        <td>{{ category.id }}</td>
+                        <td>{{ category.description }}</td>
+                        <td>{{ category.urlHandle }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </ng-container>
     </div>
     <div>
     <a [routerLink]="['/admin/admin-category-add']" routerLinkActive="router-link-active" >Adicionar Categoria</a>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AdminAddArticleRequest } from '../../../models/admin-article/admin-article-add-request';
+import { AdminAddArticleRequest } from '../../../models/article/article-add-request.model';
 import { ArticleService } from '../../../services/admin-article/article.service';
 
 

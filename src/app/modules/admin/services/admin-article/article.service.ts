@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AdminAddArticleRequest } from '../../models/admin-article/admin-article-add-request';
+import { AdminAddArticleRequest } from '../../models/article/article-add-request.model';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
