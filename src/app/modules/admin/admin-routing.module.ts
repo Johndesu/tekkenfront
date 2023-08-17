@@ -7,6 +7,7 @@ import { AdminCategoryAddComponent } from './components/admin-category/admin-cat
 import { AdminCategoryDetailComponent } from './components/admin-category/admin-category-detail/admin-category-detail.component';
 import { AdminArticleComponent } from './components/admin-article/admin-article.component';
 import { AdminArticleAddComponent } from './components/admin-article/admin-article-add/admin-article-add.component';
+import { AdminCategoryEditComponent } from './components/admin-category/admin-category-edit/admin-category-edit.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,11 @@ const routes: Routes = [
       {
         path: 'admin-category-detail',
         component: AdminCategoryDetailComponent,
+        loadChildren: () => import('./admin.module').then(m => m.AdminModule)
+      },
+      {
+        path: 'admin-category-edit/:id',
+        component: AdminCategoryEditComponent,
         loadChildren: () => import('./admin.module').then(m => m.AdminModule)
       },
     ],

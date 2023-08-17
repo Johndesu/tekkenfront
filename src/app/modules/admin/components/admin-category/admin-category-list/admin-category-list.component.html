@@ -8,13 +8,17 @@
                         <th>Id</th>
                         <th>Nome</th>
                         <th>Url</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let category of categories$ | async">
+                    <tr *ngFor="let category of categories">
                         <td>{{ category.id }}</td>
                         <td>{{ category.description }}</td>
                         <td>{{ category.urlHandle }}</td>
+                        <td>
+                            <a [routerLink]="['/admin/admin-category-edit', category.id]" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Editar</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>

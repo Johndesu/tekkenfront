@@ -13,6 +13,7 @@ import { AdminArticleAddComponent } from './components/admin-article/admin-artic
 import { AdminCategoryAddComponent } from './components/admin-category/admin-category-add/admin-category-add.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminCategoryEditComponent } from './components/admin-category/admin-category-edit/admin-category-edit.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     AdminCategoryListComponent,
     AdminCategoryDetailComponent,
     AdminArticleAddComponent,
-    AdminCategoryAddComponent
+    AdminCategoryAddComponent,
+    AdminCategoryEditComponent
   ],
   exports: [
     AdminComponent

@@ -4,6 +4,7 @@ import { AdminAddCategoryRequest } from '../../models/category/category-add-requ
 import { Observable } from 'rxjs';
 import { Category } from '../../models/category/category.model';
 import { environment } from 'src/environments/environment.development';
+import { UpdateCategoryRequest } from '../../models/category/category-edit-request.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +19,17 @@ export class CategoryService {
 
   getAllCategories(): Observable<Category[]>{
     return this.http.get<Category[]>(`${environment.apiBaseUrl}/api/category`);
+  }
+
+  getCategoryById(id: string): Observable<Category>{
+    return this.http.get<Category>(`${environment.apiBaseUrl}/api/category/${id}`);
+  }
+
+  updateCategory(id:string, UpdateCategoryRequest:UpdateCategoryRequest): Observable<Category>{
+    return this.http.put<Category>(`${environment.apiBaseUrl}/api/category/${id}`, UpdateCategoryRequest);
+  }
+
+  deleteCategory(id:string){
+    return this.http.delete<Category>(`${environment.apiBaseUrl}/api/category/${id}`);
   }
 }
