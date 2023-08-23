@@ -1,4 +1,4 @@
-export interface AddArticleRequest{
+export interface Article{
     title: string;
     hero: string;
     urlHandle: string;

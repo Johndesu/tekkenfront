@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { AdminAddCategoryRequest } from '../../../models/category/category-add-request.model';
+import { AddCategoryRequest } from '../../../models/category/category-add-request.model';
 import { CategoryService } from '../../../services/admin-category/category.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin-category-add.component.css']
 })
 export class AdminCategoryAddComponent implements OnDestroy {
-  model: AdminAddCategoryRequest;
+  model: AddCategoryRequest;
   private addCategorySubscription?: Subscription
 
 

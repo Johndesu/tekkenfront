@@ -14,6 +14,12 @@ import { AdminCategoryAddComponent } from './components/admin-category/admin-cat
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminCategoryEditComponent } from './components/admin-category/admin-category-edit/admin-category-edit.component';
+import { AdminRoleAddComponent } from './components/admin-role/admin-role-add/admin-role-add.component';
+import { AdminRoleDetailComponent } from './components/admin-role/admin-role-detail/admin-role-detail.component';
+import { AdminRoleEditComponent } from './components/admin-role/admin-role-edit/admin-role-edit.component';
+import { AdminRoleListComponent } from './components/admin-role/admin-role-list/admin-role-list.component';
+import { AdminRoleComponent } from './components/admin-role/admin-role.component';
+import { AdminArticleEditComponent } from './components/admin-article/admin-article-edit/admin-article-edit.component';
 
 
 @NgModule({
@@ -27,7 +33,13 @@ import { AdminCategoryEditComponent } from './components/admin-category/admin-ca
     AdminCategoryDetailComponent,
     AdminArticleAddComponent,
     AdminCategoryAddComponent,
-    AdminCategoryEditComponent
+    AdminCategoryEditComponent,
+    AdminRoleAddComponent,
+    AdminRoleDetailComponent,
+    AdminRoleEditComponent,
+    AdminRoleListComponent,
+    AdminRoleComponent,
+    AdminArticleEditComponent
   ],
   exports: [
     AdminComponent

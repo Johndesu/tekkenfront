@@ -1,4 +1,4 @@
-export interface AdminAddCategoryRequest{
+export interface AddCategoryRequest{
     description: string;
     urlHandle: string;
 }
