@@ -1,46 +1,46 @@
 <h2 class="text-base font-semibold leading-7 text-white">Adicionar novo artigo</h2>
-
+<ng-container *ngIf="article; else notFound">
 <form #form="ngForm" (ngSubmit)="onFormSubmit()">
     <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
         <div class="sm:col-span-3">
           <label for="titulo" class="block text-sm font-medium leading-6 text-white">Título</label>
           <div class="mt-2">
-            <input [(ngModel)]="model.title" type="text" name="titulo" id="titulo" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <input [(ngModel)]="article.title" type="text" name="titulo" id="titulo" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
           </div>
         </div>
 
         <div class="sm:col-span-3">
           <label for="resumo" class="block text-sm font-medium leading-6 text-white">Url</label>
           <div class="mt-2">
-            <input [(ngModel)]="model.urlHandle" type="text" name="urlHandle" id="urlHandle" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <input [(ngModel)]="article.urlHandle" type="text" name="urlHandle" id="urlHandle" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
           </div>
         </div>
 
         <div class="sm:col-span-3">
           <label for="resumo" class="block text-sm font-medium leading-6 text-white">Resumo</label>
           <div class="mt-2">
-            <input [(ngModel)]="model.summary" type="text" name="resumo" id="resumo" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <input [(ngModel)]="article.summary" type="text" name="resumo" id="resumo" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
           </div>
         </div>
 
         <div class="sm:col-span-3">
             <label for="hero" class="block text-sm font-medium leading-6 text-white">Hero</label>
             <div class="mt-2">
-                <input [(ngModel)]="model.hero" type="text" name="hero" id="hero" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <input [(ngModel)]="article.hero" type="text" name="hero" id="hero" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             </div>
         </div>
 
         <div class="sm:col-span-3">
             <label for="thumbnail" class="block text-sm font-medium leading-6 text-white">Thumbnail</label>
             <div class="mt-2">
-                <input [(ngModel)]="model.thumbnail" type="text" name="thumbnail" id="thumbnail" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <input [(ngModel)]="article.thumbnail" type="text" name="thumbnail" id="thumbnail" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             </div>
         </div>
 
         <div class="sm:col-span-3">
             <label for="conteudo" class="block text-sm font-medium leading-6 text-white">Conteúdo</label>
             <div class="mt-2">
-                <input [(ngModel)]="model.content" type="text" name="conteudo" id="conteudo" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <input [(ngModel)]="article.content" type="text" name="conteudo" id="conteudo" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             </div>
         </div>
 
@@ -51,6 +51,13 @@
 
       <div class="mt-6 flex items-center justify-center gap-x-6 pb-10">
         <button [routerLink]="['/admin/admin-article']" type="button" class="text-sm font-semibold leading-6 text-white">Cancelar</button>
-        <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Adicionar</button>
+        <button (click)="onDelete()" type="button" class="rounded-md bg-red-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Eliminar</button>
+        <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Guardar</button>
       </div>
 </form>
+
+</ng-container>
+
+<ng-template #notFound>
+  Artigo não encontrado.
+</ng-template>

@@ -2,6 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { AddArticleRequest } from '../../../models/article/article-add-request.model';
 import { ArticleService } from '../../../services/admin-article/article.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class AdminArticleAddComponent implements OnDestroy{
   model: AddArticleRequest;
   private addArticleSubscription?: Subscription
   
-  constructor(private articleService: ArticleService){
+  constructor(private articleService: ArticleService, private router: Router){
     this.model= {
       title: '',
       urlHandle: '',
@@ -35,7 +36,7 @@ export class AdminArticleAddComponent implements OnDestroy{
       this.addArticleSubscription = this.articleService.addArticle(this.model)
       .subscribe({
         next: (response) => {
-          console.log('This was susccessful!');
+          this.router.navigateByUrl('admin/admin-article');
         },
       });
     }

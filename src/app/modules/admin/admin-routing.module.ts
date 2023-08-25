@@ -12,6 +12,7 @@ import { AdminRoleEditComponent } from './components/admin-role/admin-role-edit/
 import { AdminRoleDetailComponent } from './components/admin-role/admin-role-detail/admin-role-detail.component';
 import { AdminRoleAddComponent } from './components/admin-role/admin-role-add/admin-role-add.component';
 import { AdminRoleComponent } from './components/admin-role/admin-role.component';
+import { AdminArticleEditComponent } from './components/admin-article/admin-article-edit/admin-article-edit.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,11 @@ const routes: Routes = [
       {
         path: 'admin-article-detail',
         component: AdminArticleDetailComponent,
+        loadChildren: () => import('./admin.module').then(m => m.AdminModule)
+      },
+      {
+        path: 'admin-article-edit/:id',
+        component: AdminArticleEditComponent,
         loadChildren: () => import('./admin.module').then(m => m.AdminModule)
       },
       {

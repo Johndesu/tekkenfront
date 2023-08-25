@@ -1,39 +1,86 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ArticleService } from '../../../services/admin-article/article.service';
 import { UpdateArticleRequest } from '../../../models/article/article-edit-request.model copy';
+import { Subscription } from 'rxjs';
+import { ActivatedRoute, Route, Router } from '@angular/router';
+import { Article } from '../../../models/article/article.model';
 
 @Component({
   selector: 'app-admin-article-edit',
   templateUrl: './admin-article-edit.component.html',
   styleUrls: ['./admin-article-edit.component.css']
 })
-export class AdminArticleEditComponent {
+export class AdminArticleEditComponent implements OnInit,OnDestroy {
 
-  model: UpdateArticleRequest
+  id: string | null = null;
+  paramsSubscription?: Subscription;
+  editArticleSubscription?: Subscription;
+  article?: Article;
 
-  constructor(private articleService: ArticleService){
-    this.model= {
-      title: '',
-      urlHandle: '',
-      hero: '',
-      thumbnail: '',
-      summary: '',
-      content: '',
+  constructor(
+    private articleService: ArticleService,
+    private route: ActivatedRoute,
+    private router: Router
+    ){
+    }
+
+  ngOnInit() {
+    this.paramsSubscription = this.route.paramMap.subscribe({
+      next:(params) => {
+        this.id = params.get('id');
+        console.log(this.id);
+
+        if(this.id){
+          this.articleService.getArticleById(this.id)
+          .subscribe({
+            next: (response) => {
+              this.article = response
+            }
+          });
+        }
+      }
+    }); 
+  }
+
+
+  onFormSubmit(){
+    const UpdateArticleRequest: UpdateArticleRequest = {
+      title: this.article?.title ?? '',
+      urlHandle: this.article?.urlHandle ?? '',
+      hero: this.article?.hero ?? '',
+      thumbnail: this.article?.thumbnail ?? '',
+      summary: this.article?.summary ?? '',
+      content: this.article?.content ?? '',
       publishedAt: Date.now(),
-      isPublished: true,
-      isDeleted: false
-
+      isPublished: this.article?.isPublished ?? true,
+      isDeleted: this.article?.isDeleted ?? false
     }
 
-    }
-
-    onFormSubmit(){
-      console.log(this.model);
-      this.articleService.addArticle(this.model)
+    if (this.id){
+      this.editArticleSubscription  = this.articleService.updateArticle(this.id, UpdateArticleRequest)
       .subscribe({
         next: (response) => {
-          console.log('This was susccessful!');
+        this.router.navigateByUrl('/admin/admin-article');
         },
       });
     }
+  }
+
+
+  onDelete(){
+    if(this.id){
+      this.articleService.deleteArticle(this.id)
+      .subscribe({
+        next: (response) => {
+          this.router.navigateByUrl('/admin/admin-article');
+        }
+      });
+    }
+  }
+
+
+  ngOnDestroy(): void {
+    this.paramsSubscription?.unsubscribe();
+    this.editArticleSubscription?.unsubscribe();
+  }
 }

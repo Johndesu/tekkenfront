@@ -1,7 +1,26 @@
 <div class="text-center text-white">
     <h2 class="text-4xl">Gerir Artigos</h2>
     <div>
-        Listagem...
+        <ng-container *ngIf="roles$ | async as articles">
+            <table class="table-auto">
+                <thead>
+                    <tr>
+                        <th>Titulo</th>
+                        <th>Url</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let article of articles">
+                        <td>{{ article.title }}</td>
+                        <td>{{ article.urlHandle }}</td>
+                        <td>
+                            <a [routerLink]="['/admin/admin-article-edit', article.id]" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Editar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </ng-container>
     </div>
     <div>
     <a [routerLink]="['/admin/admin-article-add']" routerLinkActive="router-link-active" >Adicionar Artigos</a>
