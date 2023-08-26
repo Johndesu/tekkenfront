@@ -28,7 +28,6 @@ export class AdminArticleEditComponent implements OnInit,OnDestroy {
     this.paramsSubscription = this.route.paramMap.subscribe({
       next:(params) => {
         this.id = params.get('id');
-        console.log(this.id);
 
         if(this.id){
           this.articleService.getArticleById(this.id)
@@ -39,7 +38,7 @@ export class AdminArticleEditComponent implements OnInit,OnDestroy {
           });
         }
       }
-    }); 
+    });
   }
 
 
@@ -51,7 +50,7 @@ export class AdminArticleEditComponent implements OnInit,OnDestroy {
       thumbnail: this.article?.thumbnail ?? '',
       summary: this.article?.summary ?? '',
       content: this.article?.content ?? '',
-      publishedAt: Date.now(),
+      publishedAt: new Date(),
       isPublished: this.article?.isPublished ?? true,
       isDeleted: this.article?.isDeleted ?? false
     }
@@ -67,19 +66,7 @@ export class AdminArticleEditComponent implements OnInit,OnDestroy {
   }
 
 
-  onDelete(){
-    if(this.id){
-      this.articleService.deleteArticle(this.id)
-      .subscribe({
-        next: (response) => {
-          this.router.navigateByUrl('/admin/admin-article');
-        }
-      });
-    }
-  }
-
-
-  ngOnDestroy(): void {
+  ngOnDestroy() {
     this.paramsSubscription?.unsubscribe();
     this.editArticleSubscription?.unsubscribe();
   }

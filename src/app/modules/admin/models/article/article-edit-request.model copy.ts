@@ -5,7 +5,7 @@ export interface UpdateArticleRequest{
     thumbnail: string;
     content: string;
     summary: string;
-    publishedAt: number;
+    publishedAt: Date;
     isPublished: boolean;
     isDeleted: boolean;
 }

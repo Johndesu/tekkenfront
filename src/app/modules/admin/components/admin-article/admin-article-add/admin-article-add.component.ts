@@ -23,7 +23,7 @@ export class AdminArticleAddComponent implements OnDestroy{
       thumbnail: '',
       summary: '',
       content: '',
-      publishedAt: Date.now(),
+      publishedAt: new Date(),
       isPublished: true,
       isDeleted: false
 

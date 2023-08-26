@@ -59,18 +59,6 @@ export class AdminRoleEditComponent implements OnInit, OnDestroy{
     
   }
 
-  onDelete(){
-    if(this.id){
-    this.roleService.deleteRole(this.id)
-    .subscribe({
-      next: (response) => {
-        this.router.navigateByUrl('/admin/admin-role');
-      }
-    });
-    }
-  }
-
-
   ngOnDestroy(){
     this.paramsSubscription?.unsubscribe();
     this.editRoleSubscription?.unsubscribe();

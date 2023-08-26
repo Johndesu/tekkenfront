@@ -5,9 +5,12 @@ import { InputModule } from './ui/input/input.module';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     CommonModule, InputModule
+  ],
+  exports: [
   ]
 })
 export class SharedModule { }

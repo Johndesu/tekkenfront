@@ -20,6 +20,8 @@ import { AdminRoleEditComponent } from './components/admin-role/admin-role-edit/
 import { AdminRoleListComponent } from './components/admin-role/admin-role-list/admin-role-list.component';
 import { AdminRoleComponent } from './components/admin-role/admin-role.component';
 import { AdminArticleEditComponent } from './components/admin-article/admin-article-edit/admin-article-edit.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { AdminTableListModule } from 'src/app/shared/ui/admin-table-list/admin-table-list.module';
 
 
 @NgModule({
@@ -39,7 +41,7 @@ import { AdminArticleEditComponent } from './components/admin-article/admin-arti
     AdminRoleEditComponent,
     AdminRoleListComponent,
     AdminRoleComponent,
-    AdminArticleEditComponent
+    AdminArticleEditComponent,
   ],
   exports: [
     AdminComponent
@@ -48,7 +50,9 @@ import { AdminArticleEditComponent } from './components/admin-article/admin-arti
     CommonModule,
     AdminRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule,
+    AdminTableListModule
   ]
 })
 export class AdminModule { }
