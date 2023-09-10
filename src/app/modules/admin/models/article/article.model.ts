@@ -1,3 +1,5 @@
+import { Category } from "../category/category.model";
+
 export interface Article{
     id: number;
     title: string;
@@ -9,4 +11,5 @@ export interface Article{
     publishedAt: Date;
     isPublished: boolean;
     isDeleted: boolean;
+    categories: Category[];
 }

@@ -28,9 +28,19 @@
                                 <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                             </div>
                         </td>
-                        <ng-container *ngFor="let column of columns">
-                            <td class="admin-data px-6 py-4">
-                                {{ observableItem[column.key] }}
+                        <ng-container *ngFor="let column of columns; let first = first">
+                            <td class="admin-data px-6 py-4" [class.admin-data]="first">
+                                <!-- If the column is categories display title of the categories associated -->
+                                <ng-container *ngIf="column.key === 'categories'">
+                                    <span *ngFor="let category of observableItem[column.key]; let last = last">
+                                        {{category.description}}{{ !last ? ', ' : ''}}
+                                    </span>
+                                </ng-container>
+
+                                <!-- If the column is not categories normal column -->
+                                <ng-container *ngIf="column.key !== 'categories'">
+                                    {{ observableItem[column.key] }}
+                                </ng-container>
                             </td>
                         </ng-container>
                        

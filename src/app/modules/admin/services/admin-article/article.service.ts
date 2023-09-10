@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
 import { Article } from '../../models/article/article.model';
-import { UpdateArticleRequest } from '../../models/article/article-edit-request.model copy';
+import { UpdateArticleRequest } from '../../models/article/article-edit-request.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +13,8 @@ export class ArticleService {
 
   constructor(private http: HttpClient) { }
 
-  addArticle(model: AddArticleRequest): Observable<void>{
-    return this.http.post<void>(`${environment.apiBaseUrl}/api/article`, model);
+  addArticle(model: AddArticleRequest): Observable<Article>{
+    return this.http.post<Article>(`${environment.apiBaseUrl}/api/article`, model);
   }
 
   getAllArticles(): Observable<Article[]>{
@@ -26,7 +26,7 @@ export class ArticleService {
   }
 
   updateArticle(id:string, UpdateArticleRequest:UpdateArticleRequest): Observable<Article>{
-    console.log('articleService.updateArticle(): ' + UpdateArticleRequest)
+    console.log('updateArticle Method: ' + UpdateArticleRequest.categories);
     return this.http.put<Article>(`${environment.apiBaseUrl}/api/article/${id}`, UpdateArticleRequest);
   }
 

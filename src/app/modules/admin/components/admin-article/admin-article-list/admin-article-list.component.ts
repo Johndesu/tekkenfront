@@ -16,6 +16,7 @@ export class AdminArticleListComponent implements OnInit, OnDestroy{
   columns = [
     {key: 'title', label: 'Titulo'},
     {key: 'urlHandle', label: 'Url'},
+    {key: 'categories', label: 'Categoria'}
   ];
 
 

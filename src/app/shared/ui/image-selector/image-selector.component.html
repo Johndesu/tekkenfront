@@ -1,0 +1,57 @@
+<div class="relative z-10" aria-labelledby="modal-title" role="dialog" artia-modal="true">
+
+    <div class="fixed inset-0 bg-black bg-opacity-75 transition-opacity"></div>
+
+    <div class="fixed inset-0 z-10 overflow-y-auto">
+        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0 min-w-full max-w-full">
+            <div class="relative transform overflow-hidden rounded-lg bg-gray-400 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-4xl">
+                <div class="class-header p-5 flex flex-wrap flex-row">
+                    <h3 class="card-title flex-grow font-bold">Imagens</h3>
+                    <button type="button" (click)="closeModal()"><fa-icon [icon]="faXmark" class=""></fa-icon></button>
+                </div>
+                <div class="card-body">
+                    <div class="flex flex-row-reverse md:flex-row">
+                        <div class="bg-white flex-grow">
+                            <div class="grid grid-cols-4 p-5 align-middle gap-5" style="overflow-y: scroll;">
+                                <ng-container *ngIf="images$ | async as images">
+                                    <div *ngFor="let image of images">
+                                        <div class="py-5 bg-gray-300 text-center cursor-pointer" (click)="selectImage(image)">
+                                            <img [src]="image.url" [title]="image.title" style="height:100px;" class="mx-auto object-contain">
+                                            <span class="mt-4">{{ image.title }}</span>
+                                        </div>
+                                        <div class="flex justify-center">
+                                            <button class="delete-icon m-3" (click)="deleteImage(image.id)">
+                                                <fa-icon [icon]="faTrash" class="text-red-600"></fa-icon>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div class="bg-slate-700 p-5">
+                            <form #form="ngForm" (ngSubmit)="uploadImage()">
+                                <div class="mt-3">
+                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file</label>
+                                    <input (change)="onFileUploadChange($event)" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
+                                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
+                                </div>
+
+                                <div class="mt-3">
+                                    <input [(ngModel)]="fileName" type="text" class="control-form" placeholder="File Name" name="filename">
+                                </div>
+
+                                <div class="mt-3">
+                                    <input [(ngModel)]="title" type="text" class="control-form" placeholder="Title" name="title">
+                                </div>
+
+                                <div class="mt-3">
+                                    <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Upload</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

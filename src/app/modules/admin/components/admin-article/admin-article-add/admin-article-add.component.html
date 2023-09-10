@@ -25,6 +25,13 @@
 
         <div class="sm:col-span-3">
             <label for="hero" class="block text-sm font-medium leading-6 text-white">Hero</label>
+
+            <ng-container *ngIf="model.hero !== ''">
+              <div>
+                <img [src]="model.hero" class="h-24">
+              </div>
+            </ng-container>
+
             <div class="mt-2">
                 <input [(ngModel)]="model.hero" type="text" name="hero" id="hero" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             </div>
@@ -32,6 +39,13 @@
 
         <div class="sm:col-span-3">
             <label for="thumbnail" class="block text-sm font-medium leading-6 text-white">Thumbnail</label>
+
+            <ng-container *ngIf="model.thumbnail !== ''">
+              <div>
+                <img [src]="model.thumbnail" class="h-24">
+              </div>
+            </ng-container>
+
             <div class="mt-2">
                 <input [(ngModel)]="model.thumbnail" type="text" name="thumbnail" id="thumbnail" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             </div>
@@ -44,6 +58,14 @@
             </div>
         </div>
 
+        <div class="sm:col-span-3">
+          <label for="conteudo" class="block text-sm font-medium leading-6 text-white">Categorias</label>
+          <ng-container *ngIf="categories$ | async as categories">
+            <select [(ngModel)]="model.categories" class="fotm-control" name="categories" id="categories" multiple>
+              <option *ngFor="let category of categories" [value]="category.id">{{ category.description }}</option>
+            </select>
+          </ng-container>
+      </div>
 
       </div>
 

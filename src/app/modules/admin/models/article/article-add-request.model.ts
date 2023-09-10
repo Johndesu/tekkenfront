@@ -8,4 +8,5 @@ export interface AddArticleRequest{
     publishedAt: Date;
     isPublished: boolean;
     isDeleted: boolean;
+    categories: string[];
 }
