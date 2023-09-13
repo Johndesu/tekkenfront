@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Category } from '../../../models/category/category.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { CategoryService } from '../../../services/admin-category/category.service';
+import { CategoryService } from '../../../services/admin-category/admin-category.service';
 import { UpdateCategoryRequest } from '../../../models/category/category-edit-request.model';
 
 @Component({

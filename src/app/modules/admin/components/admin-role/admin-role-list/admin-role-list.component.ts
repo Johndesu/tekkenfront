@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { RoleService } from '../../../services/admin-role/role.service';
+import { AdminRoleService } from '../../../services/admin-role/admin-role.service';
 import { Role } from '../../../models/role/role.model';
 import { Observable, Subscription, map } from 'rxjs';
 import { Router } from '@angular/router';
@@ -19,7 +19,7 @@ export class AdminRoleListComponent implements OnInit, OnDestroy{
   ];
 
   constructor(
-    private roleService: RoleService,
+    private roleService: AdminRoleService,
     private router: Router
     ){}
 

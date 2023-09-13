@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AddArticleRequest } from '../../../models/article/article-add-request.model';
-import { ArticleService } from '../../../services/admin-article/article.service';
+import { AdminArticleService } from '../../../services/admin-article/admin-article.service';
 import { Observable, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { CategoryService } from '../../../services/admin-category/category.service';
+import { CategoryService } from '../../../services/admin-category/admin-category.service';
 import { Category } from '../../../models/category/category.model';
 
 
@@ -20,7 +20,7 @@ export class AdminArticleAddComponent implements OnInit, OnDestroy{
   private addArticleSubscription?: Subscription
   
   constructor(
-    private articleService: ArticleService,
+    private articleService: AdminArticleService,
     private router: Router,
     private categoriesService: CategoryService
     ){

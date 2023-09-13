@@ -9,7 +9,7 @@ import { AddRoleRequest } from '../../models/role/role-add-request.model';
 @Injectable({
   providedIn: 'root'
 })
-export class RoleService {
+export class AdminRoleService {
 
   constructor(private http: HttpClient) { }
 

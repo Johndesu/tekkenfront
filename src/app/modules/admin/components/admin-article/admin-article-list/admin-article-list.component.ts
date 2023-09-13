@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription, map } from 'rxjs';
 import { Article } from '../../../models/article/article.model';
-import { ArticleService } from '../../../services/admin-article/article.service';
+import { AdminArticleService } from '../../../services/admin-article/admin-article.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-admin-article-list',
@@ -21,7 +21,7 @@ export class AdminArticleListComponent implements OnInit, OnDestroy{
 
 
   constructor(
-    private articleService: ArticleService,
+    private articleService: AdminArticleService,
     private router: Router
     ){}
 

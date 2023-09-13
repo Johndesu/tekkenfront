@@ -5,18 +5,17 @@ import { ArticleRoutingModule } from './article-routing.module';
 import { ArticleListComponent } from './components/article-list/article-list.component';
 import { ArticleDetailComponent } from './components/article-detail/article-detail.component';
 import { ArticleComponent } from './article.component';
-import { AdminComponent } from '../admin/admin.component';
 
 
 @NgModule({
   declarations: [
     ArticleComponent,
     ArticleListComponent,
-    ArticleDetailComponent,
-    
+    ArticleDetailComponent,    
   ],
   exports:[
-    ArticleComponent
+    ArticleComponent,
+    ArticleListComponent
   ],
   imports: [
     CommonModule,

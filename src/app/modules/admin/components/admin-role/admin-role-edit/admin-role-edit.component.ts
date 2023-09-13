@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { RoleService } from '../../../services/admin-role/role.service';
+import { AdminRoleService } from '../../../services/admin-role/admin-role.service';
 import { Role } from '../../../models/role/role.model';
 import { Subscription } from 'rxjs';
 import { UpdateRoleRequest } from '../../../models/role/role-edit-request.model';
@@ -19,7 +19,7 @@ export class AdminRoleEditComponent implements OnInit, OnDestroy{
 
   constructor(
     private route: ActivatedRoute,
-    private roleService: RoleService,
+    private roleService: AdminRoleService,
     private router: Router
     ){}
 

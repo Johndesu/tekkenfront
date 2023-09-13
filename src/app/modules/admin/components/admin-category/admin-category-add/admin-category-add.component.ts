@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { AddCategoryRequest } from '../../../models/category/category-add-request.model';
-import { CategoryService } from '../../../services/admin-category/category.service';
+import { CategoryService } from '../../../services/admin-category/admin-category.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 

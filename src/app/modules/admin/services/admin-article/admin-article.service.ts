@@ -9,7 +9,7 @@ import { UpdateArticleRequest } from '../../models/article/article-edit-request.
 @Injectable({
   providedIn: 'root'
 })
-export class ArticleService {
+export class AdminArticleService {
 
   constructor(private http: HttpClient) { }
 

@@ -14,7 +14,7 @@ import { AdminRoleAddComponent } from './components/admin-role/admin-role-add/ad
 import { AdminRoleComponent } from './components/admin-role/admin-role.component';
 import { AdminArticleEditComponent } from './components/admin-article/admin-article-edit/admin-article-edit.component';
 
-const routes: Routes = [
+const adminRoutes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
@@ -86,7 +86,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(adminRoutes)],
   exports: [RouterModule]
 })
 export class AdminRoutingModule { }

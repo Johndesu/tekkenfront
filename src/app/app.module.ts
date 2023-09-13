@@ -8,10 +8,11 @@ import { AccountModule } from './modules/account/account.module';
 import { SharedModule } from './shared/shared.module';
 import { ArticleModule } from './modules/article/article.module';
 import { AdminModule } from './modules/admin/admin.module';
+import { PublicModule } from './modules/public/public.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule,AppRoutingModule, CoreModule, AccountModule, SharedModule, ArticleModule, AdminModule],
+  imports: [BrowserModule,AppRoutingModule, CoreModule, AccountModule, SharedModule, ArticleModule, AdminModule, PublicModule],
   providers: [],
   bootstrap: [AppComponent]
 })

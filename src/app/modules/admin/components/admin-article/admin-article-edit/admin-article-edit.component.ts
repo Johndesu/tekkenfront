@@ -1,10 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ArticleService } from '../../../services/admin-article/article.service';
+import { AdminArticleService } from '../../../services/admin-article/admin-article.service';
 import { UpdateArticleRequest } from '../../../models/article/article-edit-request.model';
 import { Observable, Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Article } from '../../../models/article/article.model';
-import { CategoryService } from '../../../services/admin-category/category.service';
+import { CategoryService } from '../../../services/admin-category/admin-category.service';
 import { Category } from '../../../models/category/category.model';
 import { ImageService } from 'src/app/shared/services/image/image.service';
 
@@ -27,7 +27,7 @@ export class AdminArticleEditComponent implements OnInit,OnDestroy {
 
 
   constructor(
-    private articleService: ArticleService,
+    private articleService: AdminArticleService,
     private categoryService: CategoryService,
     private route: ActivatedRoute,
     private router: Router,

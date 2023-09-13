@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { RoleService } from '../../../services/admin-role/role.service';
+import { AdminRoleService } from '../../../services/admin-role/admin-role.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AddRoleRequest } from '../../../models/role/role-add-request.model';
@@ -14,7 +14,7 @@ export class AdminRoleAddComponent implements OnDestroy{
   private addRoleSubscription?: Subscription
 
 
-  constructor(private roleService: RoleService,private router: Router){
+  constructor(private roleService: AdminRoleService,private router: Router){
     this.model = {
       description: '',
     }

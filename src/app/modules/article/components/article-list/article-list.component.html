@@ -1,11 +1,29 @@
 <div>
     <h1 class="text-white text-4xl">Notícias</h1>
 
-    <div class="text-white">
-        <p>Hero: {{ hero }} </p>
-        <p>Thumbnail: {{ thumbnail }} </p>
-        <p>Title: {{ title }} </p>
-        <p>Summary: {{ summary }} </p>
-        <p>Published At: {{ publishedAt }} </p>
+    <div class="container">
+        <div class="my-5">
+            <div class="grid grid-cols-2 p-5 align-middle gap-5">
+                <ng-container *ngIf="articles$ | async as articles">
+                    <div *ngFor="let article of articles">
+                        <div class="py-5 text-center">
+                            <img [src]="article.hero" class="h-16 mx-auto object-contain" [alt]="article.title">
+                            <div class="card-body flex flex-col">
+                                <h5 class="text-white">
+                                    {{ article.title }}
+                                </h5>
+                                <p class="text-white">
+                                    {{ article.summary }}
+                                </p>
+                                <span class="flex items-end" style="flex: 1">
+                                    <a [routerLink]="['/noticias', article.urlHandle]" class="rounded-md bg-indigo-600 px-3 py-2 text-sm text-center mx-auto mt-5 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Ler mais</a>
+                                </span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
     </div>
 </div>

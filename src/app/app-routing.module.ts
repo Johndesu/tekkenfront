@@ -1,17 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ArticleComponent } from './modules/article/article.component';
+import { HomeComponent } from './modules/public/home/home.component';
+import { ArticleDetailComponent } from './modules/article/components/article-detail/article-detail.component';
+import { NoticiasComponent } from './modules/public/noticias/noticias.component';
 
-const routes: Routes = [
+const mainRoutes: Routes = [
+  {
+    path: '',
+    component: HomeComponent
+  },
   {
     path: 'noticias',
-    component : ArticleComponent,
-    loadChildren: () => import('./modules/article/article.module').then(m => m.ArticleModule)
+    component : NoticiasComponent,
   },
+  {
+    path: 'noticias/:url',
+    component: ArticleDetailComponent
+  }
 ];
 
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(mainRoutes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

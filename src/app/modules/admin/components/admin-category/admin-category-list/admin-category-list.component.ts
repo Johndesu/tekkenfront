@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { CategoryService } from '../../../services/admin-category/category.service';
+import { CategoryService } from '../../../services/admin-category/admin-category.service';
 import { Observable, Subscription, map } from 'rxjs';
 import { Category } from '../../../models/category/category.model';
 import { Router } from '@angular/router';
