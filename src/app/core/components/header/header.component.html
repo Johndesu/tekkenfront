@@ -21,7 +21,7 @@
         <a routerLink="/" class="text-sm font-semibold leading-6 text-white hover:text-gray-400">Guias</a>
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-        <ng-container *ngIf="user === undefined; else showLogout">
+        <ng-container *ngIf="user === undefined && inProduction; else showLogout">
           <!-- Show Login Button -->
           <a routerLink="/login" class="text-sm font-semibold leading-6 text-white mr-4">Login <span aria-hidden="true"></span></a>
         </ng-container>

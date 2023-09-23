@@ -3,13 +3,23 @@ import { CanActivateFn, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../../account/services/auth.service';
 import jwt_decode from 'jwt-decode'
+import { environment } from 'src/environments/environment';
 
 export const authGuard: CanActivateFn = (route, state) => {
   const cookieService = inject(CookieService);
   const authService = inject(AuthService);
   const router = inject(Router);
-  const user = authService.getUser();
 
+  // Check if authentication is enabled
+  if (!environment.authEnabled) {
+    console.log('Auth Disabled. Development Mode');
+    return true; // Authentication is disabled, allow access
+  }
+
+  console.log(environment.authEnabled);
+
+  const user = authService.getUser();
+  
   // Check for the JWT Token aka if logged in
   let token = cookieService.get('Authorization');
 

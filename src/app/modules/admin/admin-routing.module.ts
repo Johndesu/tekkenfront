@@ -8,10 +8,6 @@ import { AdminCategoryDetailComponent } from './components/admin-category/admin-
 import { AdminArticleComponent } from './components/admin-article/admin-article.component';
 import { AdminArticleAddComponent } from './components/admin-article/admin-article-add/admin-article-add.component';
 import { AdminCategoryEditComponent } from './components/admin-category/admin-category-edit/admin-category-edit.component';
-import { AdminRoleEditComponent } from './components/admin-role/admin-role-edit/admin-role-edit.component';
-import { AdminRoleDetailComponent } from './components/admin-role/admin-role-detail/admin-role-detail.component';
-import { AdminRoleAddComponent } from './components/admin-role/admin-role-add/admin-role-add.component';
-import { AdminRoleComponent } from './components/admin-role/admin-role.component';
 import { AdminArticleEditComponent } from './components/admin-article/admin-article-edit/admin-article-edit.component';
 import { authGuard } from './guards/auth.guard';
 
@@ -19,7 +15,6 @@ const adminRoutes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
-    //loadChildren: () => import('./admin.module').then(m => m.AdminModule)
     canActivate: [authGuard],
     canActivateChild: [authGuard],
     children:[
@@ -61,26 +56,6 @@ const adminRoutes: Routes = [
       {
         path: 'admin-category-edit/:id',
         component: AdminCategoryEditComponent,
-        loadChildren: () => import('./admin.module').then(m => m.AdminModule)
-      },
-      {
-        path: 'admin-role',
-        component: AdminRoleComponent,
-        loadChildren: () => import('./admin.module').then(m => m.AdminModule)
-      },
-      {
-        path: 'admin-role-add',
-        component: AdminRoleAddComponent,
-        loadChildren: () => import('./admin.module').then(m => m.AdminModule)
-      },
-      {
-        path: 'admin-role-detail',
-        component: AdminRoleDetailComponent,
-        loadChildren: () => import('./admin.module').then(m => m.AdminModule)
-      },
-      {
-        path: 'admin-role-edit/:id',
-        component: AdminRoleEditComponent,
         loadChildren: () => import('./admin.module').then(m => m.AdminModule)
       },
     ],
