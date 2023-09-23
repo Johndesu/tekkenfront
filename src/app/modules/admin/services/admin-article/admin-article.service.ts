@@ -14,7 +14,7 @@ export class AdminArticleService {
   constructor(private http: HttpClient) { }
 
   addArticle(model: AddArticleRequest): Observable<Article>{
-    return this.http.post<Article>(`${environment.apiBaseUrl}/api/article`, model);
+    return this.http.post<Article>(`${environment.apiBaseUrl}/api/article?addAuth=true`, model);
   }
 
   getAllArticles(): Observable<Article[]>{
@@ -27,11 +27,11 @@ export class AdminArticleService {
 
   updateArticle(id:string, UpdateArticleRequest:UpdateArticleRequest): Observable<Article>{
     console.log('updateArticle Method: ' + UpdateArticleRequest.categories);
-    return this.http.put<Article>(`${environment.apiBaseUrl}/api/article/${id}`, UpdateArticleRequest);
+    return this.http.put<Article>(`${environment.apiBaseUrl}/api/article/${id}?addAuth=true`, UpdateArticleRequest);
   }
 
   deleteArticle(id:string){
-    return this.http.delete<Article>(`${environment.apiBaseUrl}/api/article/${id}`);
+    return this.http.delete<Article>(`${environment.apiBaseUrl}/api/article/${id}?addAuth=true`);
   }
 
 }

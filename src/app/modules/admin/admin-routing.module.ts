@@ -13,12 +13,15 @@ import { AdminRoleDetailComponent } from './components/admin-role/admin-role-det
 import { AdminRoleAddComponent } from './components/admin-role/admin-role-add/admin-role-add.component';
 import { AdminRoleComponent } from './components/admin-role/admin-role.component';
 import { AdminArticleEditComponent } from './components/admin-article/admin-article-edit/admin-article-edit.component';
+import { authGuard } from './guards/auth.guard';
 
 const adminRoutes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
     //loadChildren: () => import('./admin.module').then(m => m.AdminModule)
+    canActivate: [authGuard],
+    canActivateChild: [authGuard],
     children:[
       {
         path: 'admin-article',
