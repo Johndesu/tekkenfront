@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Article } from 'src/app/modules/admin/models/article/article.model';
 import { AdminArticleService } from 'src/app/modules/admin/services/admin-article/admin-article.service';
 
+
 @Component({
   selector: 'app-article-list',
   templateUrl: './article-list.component.html',
@@ -20,5 +21,7 @@ export class ArticleListComponent implements OnInit{
   ngOnInit(): void {
     this.articles$ = this.articleService.getAllArticles();
   }
+
+  
 
 }

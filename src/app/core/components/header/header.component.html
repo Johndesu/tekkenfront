@@ -1,42 +1,111 @@
-<header>
-    <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-">
-      <div class="flex lg:flex-1">
-        <a routerLink="/" class="-m-1.5 p-1.5">
+<header class="bg-[#091019] mb-10 border-b-2 border-black shadow-md shadow-slate-900 hidden lg:block">
+    <div class="container mx-auto lg:px20 xl:px-40 2xl:px-64 flex h-full">
+      <!-- Header Left -->
+      <div class="w-1/2 relative">
+        <!-- Background -->
+        <div class="
+        absolute w-full h-full skew-x-12 z-0 border-l border-l-gray-600
+        before:content-[''] before:absolute before:left-0 before:top-8 before:w-full before:border-b before:border-b-gray-600
+        "></div>
+        <!--Upper-->
+        <div class="relative py-2 pr-12 flex justify-end text-white text-xs z-1">
+            <span class="mr-3">Segue-nos:</span>
+            <ul class="flex gap-6">
+              <li><a href="#"><fa-icon [icon]="faDiscord"></fa-icon></a></li>
+              <li><a href="#"><fa-icon [icon]="faTikTok"></fa-icon></a></li>
+              <li><a href="#"><fa-icon [icon]="faXTwitter"></fa-icon></a></li>
+              <li><a href="#"><fa-icon [icon]="faYoutube"></fa-icon></a></li>
+            </ul>
+        </div>
+        <!--Bottom-->
+        <div class="h-full">
+          <nav class="pr-6 flex justify-end gap-10 text-white">
+              <a routerLink="/noticias" class="
+                relative px-6 py-4
+                after:transition-transform after: duration-500 after:ease-out after:absolute 
+                after:bottom-0 after:left-0 after:block after:h-[5px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-red-600 
+                after:content-[''] after:hover:origin-bottom-left after:hover:scale-x-100 after:active:bg-red-600
+              ">
+                  Notícias
+              </a>
+              <a routerLink="/" class="
+                relative px-6 py-4
+                after:transition-transform after: duration-500 after:ease-out after:absolute 
+                after:bottom-0 after:left-0 after:block after:h-[5px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-red-600 
+                after:content-[''] after:hover:origin-bottom-left after:hover:scale-x-100 after:active:bg-red-600
+              ">
+                  Guias
+              </a>
+          </nav>
+        </div>
+      </div>
+      <!-- Header Middle -->
+      <!-- <div class="relative h-[calc(100%+10px)]">
+        <div class="w-full h-full bg-cover bg-center bg-clip-text text-transparent" style="background-image: url('your-image.jpg'); -webkit-background-clip: text;">
+            Your Text Goes Here
+        </div>
+      </div> -->
+
+      <div class="w-1/5 relative">
+        <div class="clip-path-polygon h-[calc(100%+10px)] border-b border-black" style="background-image: url('../../../../assets/images/logo-background-img.jpg');"></div>
+        <a routerLink="/" class="absolute w-full top-2 flex justify-center">
           <span class="sr-only">Tekken Portugal</span>
-          <img class="h-8 w-auto" src="../../../../assets/images/tekken-portugal-logo.png" alt="">
+          <img class="h-full w-full" src="../../../../assets/images/tekken-portugal-logo.png" alt="">
         </a>
       </div>
-      <div class="flex lg:hidden">
-        <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-          <span class="sr-only">Open main menu</span>
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-          </svg>
+      <!-- Header Right -->
+      <div class="w-1/2 relative">
+        <!-- Background -->
+        <div class="
+        absolute w-full h-full -skew-x-12 z-0 border-r border-r-gray-600
+        before:content-[''] before:absolute before:left-0 before:top-8 before:w-full before:border-b before:border-b-gray-600
+        "></div>
+
+        <!--Upper-->
+        <div class="relative py-1 pl-12 text-white text-xs">
+          És iniciante? Dá uma olhada no nosso guia <a routerLink="/" class="animate-pulse text-sm font-semibold leading-6 text-red-400 hover:text-green-500">aqui!</a>
+        </div>
+        <!--Bottom-->
+        <div class="h-full">
+          <nav class="pl-6 flex gap-10 text-white">
+              <a routerLink="/noticias" class="
+                relative px-6 py-4
+                after:transition-transform after: duration-500 after:ease-out after:absolute 
+                after:bottom-0 after:left-0 after:block after:h-[5px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-red-600 
+                after:content-[''] after:hover:origin-bottom-left after:hover:scale-x-100 after:active:bg-red-600
+              ">
+                  Eventos
+              </a>
+              <a routerLink="/" class="
+                relative px-6 py-4
+                after:transition-transform after: duration-500 after:ease-out after:absolute 
+                after:bottom-0 after:left-0 after:block after:h-[5px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-red-600 
+                after:content-[''] after:hover:origin-bottom-left after:hover:scale-x-100 after:active:bg-red-600
+              ">
+                  Comunidade
+              </a>
+          </nav>
+        </div>
+      </div>
+      
+    </div>
+
+</header>
+
+<header class="lg:hidden">
+    <div class="flex items-center justify-between px-4 py-3">
+      <div>
+        <img class="h-8" src="../../../../assets/images/tekken-portugal-logo.png" alt="">
+      </div>
+      <div>
+        <button (click)="openMobileMenu()">
+          <fa-icon [icon]="faBars" class="text-lg text-white"></fa-icon>
         </button>
       </div>
-      <div class="hidden lg:flex lg:gap-x-12">
-        <a routerLink="/noticias" class="text-sm font-semibold leading-6 text-white hover:text-gray-400">Notícias</a>
-        <a routerLink="/" class="text-sm font-semibold leading-6 text-white hover:text-gray-400">Comunidade</a>
-        <a routerLink="/" class="text-sm font-semibold leading-6 text-white hover:text-gray-400">Eventos</a>
-        <a routerLink="/" class="text-sm font-semibold leading-6 text-white hover:text-gray-400">Guias</a>
-      </div>
-      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-        <ng-container *ngIf="user === undefined && inProduction; else showLogout">
-          <!-- Show Login Button -->
-          <a routerLink="/login" class="text-sm font-semibold leading-6 text-white mr-4">Login <span aria-hidden="true"></span></a>
-        </ng-container>
-        <ng-template #showLogout>
-          <div class="flex items-center">
-            <span class="text-sm font-semibold leading-6 text-white mr-4">{{ user?.email }}</span>
-            <a (click)="onLogout()" class="text-sm font-semibold leading-6 text-white mr-4 cursor-pointer">Logout <span aria-hidden="true"></span></a>
-            <a routerLink="/admin" class="text-sm font-semibold leading-6 text-white">Admin <span aria-hidden="true">&rarr;</span></a>
-          </div>
-        </ng-template>
-        
-      </div>
-    </nav>
+    </div>  
+
     <!-- Mobile menu, show/hide based on menu open state. -->
-    <div class="lg:hidden" role="dialog" aria-modal="true">
+    <div [ngClass]="{ 'hidden': !mobileMenuOpen }" role="dialog" aria-modal="true">
       <!-- Background backdrop, show/hide based on slide-over state. -->
       <div class="fixed inset-0 z-10"></div>
       <div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-black px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
@@ -45,7 +114,7 @@
             <span class="sr-only">Your Eventos</span>
             <img class="h-8 w-auto" src="../../../../assets/images/tekken-portugal-logo.png" alt="">
           </a>
-          <button type="button" class="-m-2.5 rounded-md p-2.5 text-white">
+          <button (click)="openMobileMenu()" type="button" class="-m-2.5 rounded-md p-2.5 text-white">
             <span class="sr-only">Close menu</span>
             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -67,4 +136,61 @@
         </div>
       </div>
     </div>
-  </header>
+</header>
+
+
+
+
+  
+<!-- Old Stuff -->
+  <!-- <nav class="mx-auto flex max-w-7xl items-center"> -->
+    <!-- Main Menu -->
+    <!-- <div class="flex menu-center flex-auto items-center justify-center">
+      <div class="flex lg:hidden">
+        <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+          <span class="sr-only">Open main menu</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+      <div class="hidden lg:flex lg:gap-x-12">
+        <a routerLink="/noticias" class="text-sm font-semibold leading-6 text-white hover:text-gray-400">Notícias</a>
+        <a routerLink="/" class="text-sm font-semibold leading-6 text-white hover:text-gray-400">Comunidade</a>
+      </div>
+      <div class="hidden lg:flex h-20 items-center px-10">
+        <a routerLink="/" class="-m-1.5 p-1.5">
+          <span class="sr-only">Tekken Portugal</span>
+          <img class="h-16 w-auto" src="../../../../assets/images/tekken-portugal-logo.png" alt="">
+        </a>
+      </div>
+      <div class="hidden lg:flex lg:gap-x-12">
+        <a routerLink="/" class="text-sm font-semibold leading-6 text-white hover:text-gray-400">Eventos</a>
+        <a routerLink="/" class="text-sm font-semibold leading-6 text-white hover:text-gray-400">Guias</a>
+      </div>
+    </div> -->
+    <!-- Admin Menu -->
+        <!-- <ng-container *ngIf="user === undefined && inProduction; else showLogout">
+          <div class="flex menu-right flex-2">
+            <div class="hidden lg:flex lg:flex-1 lg:justify-end"> -->
+          <!-- Show Login Button -->
+          <!-- <button class="bg-red-600 hover:bg-red-500 text-xs text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded">
+            És um iniciante?<br>Dá uma olhada no nosso guia!
+          </button> -->
+          <!--<a routerLink="/login" class="text-sm font-semibold leading-6 text-white mr-4">Login <span aria-hidden="true"></span></a>-->
+          <!-- </div>
+        </div>
+        </ng-container>
+        
+        <ng-template #showLogout>
+          <div class="flex menu-right flex-2">
+            <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+          <div class="flex items-center">
+            <span class="text-sm font-semibold leading-6 text-white mr-4">{{ user?.email }}</span>
+            <a (click)="onLogout()" class="text-sm font-semibold leading-6 text-white mr-4 cursor-pointer">Logout <span aria-hidden="true"></span></a>
+            <a routerLink="/admin" class="text-sm font-semibold leading-6 text-white">Admin <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+        </ng-template>
+  </nav> -->

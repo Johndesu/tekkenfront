@@ -3,6 +3,13 @@ import { Route, Router, RouterLink } from '@angular/router';
 import { User } from 'src/app/modules/account/models/user.model';
 import { AuthService } from 'src/app/modules/account/services/auth.service';
 import { environment } from 'src/environments/environment';
+import {
+  faDiscord,
+  faTiktok,
+  faXTwitter,
+  faYoutube,
+} from '@fortawesome/free-brands-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +20,14 @@ export class HeaderComponent implements OnInit{
 
   user?: User;
   inProduction : boolean = false
+  mobileMenuOpen : boolean = false
+
+  faDiscord = faDiscord
+  faTikTok = faTiktok
+  faXTwitter = faXTwitter
+  faYoutube = faYoutube
+  
+  faBars = faBars
 
   constructor(
     private authService: AuthService,
@@ -40,6 +55,10 @@ export class HeaderComponent implements OnInit{
   onLogout(){
     this.authService.logout();
     this.router.navigateByUrl('/');
+  }
+
+  openMobileMenu(){
+    this.mobileMenuOpen === false ? this.mobileMenuOpen = true : this.mobileMenuOpen = false;
   }
 
 }
