@@ -29,4 +29,8 @@ module.exports = {
   plugins: [
     require('@tailwindcss/forms'),
   ],
+  colors: {
+    'tkprimarycolor': '#710816',
+    'tkhyperlink': '#B81B30'
+  }
 }
